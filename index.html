@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>育つ会とおわ | 十和の新しい公共ものがたり</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      /* CUE風カラーパレットに変更 */
+      --cream: #fcf9f2;
+      /* 元の --color-bg-main */
+      --warm-white: #ffffff;
+      /* 元の --color-bg-white */
+      --earth: #8d6e63;
+      /* 元の --color-secondary */
+      --deep-earth: #5d4037;
+      /* 元の --color-primary */
+      --moss: #66bb6a;
+      /* 元の --color-accent-green */
+      --terracotta: #ffa726;
+      /* 元の --color-accent-orange */
+      --light-moss: #C8D5C8;
+      /* 今回は微調整: 淡いグリーン */
+      --text-dark: #4a4a4a;
+      /* 元の --color-text-body */
+      --text-mid: #666666;
+      /* 少し薄い文字 */
+      --text-light: #999999;
+      /* さらに薄い文字 */
+      --border: #f0e9d8;
+      /* 境界線 */
+
+      --font-heading: 'Zen Maru Gothic', sans-serif;
+      --font-body: 'Noto Sans JP', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      /* CUEの基本背景はcream */
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.8;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      50.1% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(253, 251, 247, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      /* 少し大きめに */
+      font-weight: 700;
+      color: var(--deep-earth);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--terracotta);
+    }
+
+    .nav-contact {
+      background: var(--terracotta);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-weight: 500 !important;
+    }
+
+    .nav-contact:hover {
+      background: var(--deep-earth);
+      color: white !important;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(160deg, rgba(91, 74, 48, 0.4) 0%, rgba(107, 124, 92, 0.3) 100%),
+        url('./hero-image.jpg') center/cover no-repeat;
+    }
+
+    .hero-box {
+      position: relative;
+      z-index: 2;
+      background: rgba(253, 251, 247, 0.65);
+      /* 半透明度を濃く（白っぽく）戻して文字を見やすく (0.25 -> 0.65) */
+      backdrop-filter: blur(4px);
+      /* ぼかしも少しだけ戻して背景の主張を和らげる */
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      /* 枠線も少しだけ白くはっきり */
+      border-radius: 32px;
+      /* 四角が小さくなるため角丸のサイズも少し合わせる */
+      padding: 16px 24px;
+      /* 上下左右の余白をさらに極限まで小さく */
+      text-align: center;
+      max-width: 440px;
+      /* 横幅の最大値も少し小さく */
+      margin-bottom: 25vh;
+      /* 【追加】四角の下に余白を作ることで、全体を上に押し上げる（画面の高さの約1/4分） */
+      animation: fadeUp 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-sub {
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px;
+      color: var(--deep-earth);
+      /* 薄い茶色(--earth)から濃い茶色(--deep-earth)へ変更 */
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      /* 20px -> 4px：真ん中のタイトルとの隙間をギリギリまで詰める */
+      font-weight: 700;
+      /* よりくっきりと見せるために太字を追加 */
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(32px, 5vw, 42px);
+      font-weight: 700;
+      color: var(--deep-earth);
+      line-height: 1.4;
+      /* 行間を1.6から1.4に少し詰める */
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+      /* 24px -> 4px：「育つ会とおわ」との隙間を詰める */
+    }
+
+    .hero-org {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--deep-earth);
+      /* 薄い茶色(--earth)から濃い茶色(--deep-earth)へ変更 */
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      opacity: 0.8;
+      animation: fadeUp 1.5s 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: white;
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 100px 48px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--earth);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--deep-earth);
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    /* CUEの特徴的なオレンジのアンダーラインを追加 */
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--terracotta);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    .section-divider {
+      display: none;
+      /* CUEでは使わないので非表示 */
+    }
+
+    /* ===== 2. ABOUT ===== */
+    #about {
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-card {
+      padding: 48px;
+      background: var(--warm-white);
+      border-top: 3px solid var(--terracotta);
+      position: relative;
+    }
+
+    .about-card.mission {
+      border-top-color: var(--moss);
+    }
+
+    .about-card-en {
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--earth);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .about-card-ja {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 28px;
+      letter-spacing: 0.08em;
+    }
+
+    .about-card-text {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text-mid);
+      min-height: 120px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+    }
+
+    .placeholder-text {
+      color: var(--border);
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    /* ===== 3. CUE ABOUT ===== */
+    #cue-about {
+      background: var(--warm-white);
+    }
+
+    .cue-about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+    }
+
+    .cue-about-left {
+      padding: 56px 48px;
+      background: var(--deep-earth);
+      color: white;
+    }
+
+    .cue-about-left h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 32px;
+      letter-spacing: 0.1em;
+      color: var(--light-moss);
+    }
+
+    .cue-about-left ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cue-about-left li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .cue-about-left li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+
+    .cue-about-right {
+      padding: 56px 48px;
+      background: var(--light-moss);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .cue-about-right h3 {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 24px;
+      letter-spacing: 0.08em;
+    }
+
+    .cue-about-right p {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    /* ===== 4. CUE NAME ===== */
+    #cue-name {
+      background-color: var(--warm-white);
+      background-image: url('./23500448.png');
+      /* 画像ファイル名を指定 */
+      background-position: bottom center;
+      /* 画像を一番下に配置 */
+      background-repeat: repeat-x;
+      /* 横方向に繰り返し */
+      background-size: 800px auto;
+      /* クローバーのサイズ感調整 */
+      text-align: center;
+      padding: 100px 48px;
+      padding-bottom: 240px;
+      /* クローバーと文字が被らないように下部の余白を広げる */
+    }
+
+    #cue-name .section-label {
+      color: var(--earth);
+    }
+
+    .cue-name-main {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(48px, 8vw, 80px);
+      color: var(--deep-earth);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .cue-name-kana {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--moss);
+      letter-spacing: 0.3em;
+      margin-bottom: 48px;
+    }
+
+    .cue-name-sub {
+      font-size: 13px;
+      color: var(--text-mid);
+      letter-spacing: 0.2em;
+      margin-bottom: 48px;
+      text-transform: uppercase;
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .cue-name-desc {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: 15px;
+      line-height: 2.2;
+      color: var(--text-dark);
+      font-weight: 300;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ===== 5. FEATURES ===== */
+    #features {
+      background: var(--cream);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .feature-card {
+      background: var(--warm-white);
+      padding: 48px 36px;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+
+    .feature-card:hover {
+      background: var(--deep-earth);
+    }
+
+    .feature-card:hover .feature-icon {
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+    }
+
+    .feature-card:hover .feature-num {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .feature-card:hover .feature-title {
+      color: white;
+    }
+
+    .feature-card:hover .feature-en {
+      color: var(--light-moss);
+    }
+
+    .feature-card:hover .feature-desc {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .feature-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px;
+      color: var(--border);
+      letter-spacing: 0.2em;
+      margin-bottom: 24px;
+      transition: color 0.3s;
+    }
+
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+      display: block;
+      transition: all 0.3s;
+    }
+
+    .feature-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 6px;
+      letter-spacing: 0.08em;
+      transition: color 0.3s;
+    }
+
+    .feature-en {
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--earth);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      transition: color 0.3s;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--text-mid);
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+
+    /* ===== 6. POWERUP ===== */
+    #powerup {
+      background: var(--warm-white);
+    }
+
+    .powerup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .powerup-left h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 700;
+      color: var(--deep-earth);
+      line-height: 1.5;
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+    }
+
+    .powerup-badge {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      font-size: 11px;
+      padding: 4px 12px;
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .powerup-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .powerup-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .powerup-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .powerup-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: var(--light-moss);
+      line-height: 1;
+      min-width: 36px;
+    }
+
+    .powerup-item-title {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .powerup-item-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .powerup-right {
+      background: var(--light-moss);
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--moss);
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .powerup-right::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(107, 124, 92, 0.4);
+    }
+
+    /* ===== 7. VOICES ===== */
+    #voices {
+      background: var(--cream);
+    }
+
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .voice-card {
+      background: var(--warm-white);
+      padding: 40px 36px;
+      position: relative;
+    }
+
+    .voice-quote {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--light-moss);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .voice-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 2;
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+
+    .voice-attr {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .voice-attr::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--terracotta);
+    }
+
+    /* ===== 8. ACTIVITIES ===== */
+    #activities {
+      background: var(--warm-white);
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--border);
+    }
+
+    .activity-card {
+      background: var(--warm-white);
+      overflow: hidden;
+    }
+
+    .activity-img {
+      height: 200px;
+      background: var(--light-moss);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--moss);
+      font-size: 13px;
+      letter-spacing: 0.15em;
+    }
+
+    .activity-img.art {
+      background: #DDD5C8;
+    }
+
+    .activity-img.event {
+      background: #C8D5C8;
+    }
+
+    .activity-img.smart {
+      background: #D5C8C8;
+    }
+
+    .activity-body {
+      padding: 28px 32px;
+    }
+
+    .activity-tag {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--earth);
+      background: var(--cream);
+      padding: 3px 10px;
+      margin-bottom: 12px;
+      font-family: 'DM Serif Display', serif;
+      text-transform: uppercase;
+    }
+
+    .activity-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    .activity-desc {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    .activities-stat {
+      text-align: center;
+      margin-top: 64px;
+      padding: 48px;
+      background: var(--deep-earth);
+      max-width: 1100px;
+      margin: 64px auto 0;
+    }
+
+    .stat-numbers {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--light-moss);
+      letter-spacing: 0.2em;
+      font-weight: 300;
+    }
+
+    /* ===== 9. ACCESS ===== */
+    #access {
+      background: var(--cream);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .access-info {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .access-item-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--earth);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .access-item-value {
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.8;
+      font-weight: 400;
+      font-family: 'Noto Serif JP', serif;
+    }
+
+    .access-hours {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .access-hours-time {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px;
+      color: var(--deep-earth);
+    }
+
+    .access-hours-range {
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+
+    .access-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .access-badge {
+      background: var(--deep-earth);
+      color: white;
+      font-size: 12px;
+      padding: 6px 16px;
+      letter-spacing: 0.1em;
+      font-weight: 300;
+    }
+
+    .access-note {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.8;
+      padding: 16px;
+      background: var(--warm-white);
+      border-left: 3px solid var(--terracotta);
+    }
+
+    .map-placeholder {
+      background: var(--light-moss);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--moss);
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      position: relative;
+    }
+
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(107, 124, 92, 0.4);
+    }
+
+    /* ===== 10. SNS ===== */
+    #sns {
+      background: var(--deep-earth);
+      text-align: center;
+      padding: 80px 48px;
+    }
+
+    #sns .section-label {
+      color: var(--light-moss);
+    }
+
+    #sns .section-title {
+      color: white;
+    }
+
+    .sns-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .sns-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      font-family: var(--font-body);
+      font-weight: 700;
+    }
+
+    .sns-btn:hover {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+
+    .sns-icon {
+      font-size: 18px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--text-dark);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scrollLine {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      50.1% {
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 24px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 72px 24px;
+      }
+
+      .hero-box {
+        padding: 40px 32px;
+        margin: 24px;
+      }
+
+      .about-grid,
+      .cue-about-grid,
+      .powerup-grid,
+      .access-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .cue-about-grid {
+        border: none;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        /* スマホでは1列（縦並び）に変更 */
+      }
+
+      .voices-grid,
+      .activities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-numbers {
+        gap: 40px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">育つ会とおわ</a>
+    <ul class="nav-links">
+      <li><a href="#about">わたしたちについて</a></li>
+      <li><a href="#cue-name">NEWS</a></li>
+      <li><a href="#features">CUEキュー。</a></li>
+      <li><a href="#access" class="nav-contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <!-- 1. HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-box">
+      <p class="hero-sub">TOWA-SHIMANTO</p>
+      <h1 class="hero-title">十和の新しい<br>公共ものがたり</h1>
+      <p class="hero-org">育つ会とおわ</p>
+    </div>
+    <div class="scroll-down">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">About Us</p>
+    <h2 class="section-title reveal">わたしたちについて</h2>
+    <div class="section-divider reveal"></div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <p class="about-card-en">ビジョン</p>
+        <h3 class="about-card-ja">VISION</h3>
+        <p class="about-card-text">「遊び・学び・育ち合い」、誰もが楽しく、自分らしく。暮らしに主体的にコミットする、豊かな地域文化を次世代にしっかりと繋いでいきます。</p>
+      </div>
+      <div class="about-card mission reveal">
+        <p class="about-card-en">ミッション</p>
+        <h3 class="about-card-ja">MISSION</h3>
+        <p class="about-card-text">
+          図書・公園・多目的機能を備えた「開かれた場」を整えることで、多世代が安心して集える居場所が創出され、結果として対話や共感が自然に生まれ、温かなコミュニケーションを育むことに寄与します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CUE ABOUT -->
+  <section id="cue-about">
+    <p class="section-label reveal">Background</p>
+    <h2 class="section-title reveal">CUEキュー。について</h2>
+    <div class="section-divider reveal"></div>
+    <div class="cue-about-grid reveal">
+      <div class="cue-about-left">
+        <h3>地域の課題</h3>
+        <ul>
+          <li>図書館・書店・遊具のある公園がない</li>
+          <li>情報・体験の格差がある</li>
+          <li>子どもたちを始め住民が気軽に集える場所がない</li>
+          <li>悪天候時に安心して過ごせる場所がない</li>
+          <li>廃園となった空き施設周辺から寂しくなった、防犯上も心配、再活用の声があった</li>
+        </ul>
+      </div>
+      <div class="cue-about-right">
+        <h3>そこでこれらの声を元に、<br>「あったらいいな」を実現しました。</h3>
+        <img src="./cue-about-image.jpg" alt="あったらいいなを実現したCUEの様子"
+          style="width: 100%; height: auto; border-radius: 16px; margin-top: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.1); object-fit: cover;">
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CUE NAME -->
+  <section id="cue-name">
+    <p class="section-label reveal">Identity</p>
+    <div class="cue-name-main reveal">CUE</div>
+    <div class="cue-name-kana reveal">キュー。</div>
+    <div class="cue-name-sub reveal">きっかけ・手がかり</div>
+    <p class="cue-name-desc reveal">
+      英語で「きっかけ」「手がかり」という意味。<br>
+      図書や公園、コミュニティによって、何かを始めるきっかけや、<br>
+      新しいモノを生み出す手がかりを得られる場所になってほしいという<br>
+      思いをこめて付けられました。
+    </p>
+  </section>
+
+  <!-- 5. FEATURES -->
+  <section id="features">
+    <p class="section-label reveal">Services</p>
+    <h2 class="section-title reveal">CUEキュー。の機能</h2>
+    <div class="section-divider reveal"></div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <p class="feature-num">01</p>
+        <!-- アイコンの代わりに画像を配置します -->
+        <img src="./IMG20231104150017 (1).jpg" alt="子どもたちが本を読む様子"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        <h3 class="feature-title">図書機能</h3>
+        <p class="feature-en">Library</p>
+        <p class="feature-desc">カリコレサービス(クラウド型の図書の貸出サービス)を活用し、町立・県立図書館と連携して常時700冊の図書を月1回の入替を行い提供。合わせて寄付本1500冊も貸出しています。
+        </p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">02</p>
+        <img src="./ko-en.jpg" alt="公園でのびのび遊ぶ様子"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        <h3 class="feature-title">公園機能</h3>
+        <p class="feature-en">Park</p>
+        <p class="feature-desc">園庭とトイレを365日開放。地域の子どもたちの遊び場として、遠足の休憩所としても活用されています。</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">03</p>
+        <img src="./tamokuteki.jpg" alt="地域の方々が集まる多目的スペースの様子"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        <h3 class="feature-title">多目的機能</h3>
+        <p class="feature-en">Multi-purpose</p>
+        <p class="feature-desc">Wi-Fi完備。学習・コワーキング・会議・イベントなど、ちょっとしたおしゃべりまで自由に使えます。</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">04</p>
+        <img src="./comyunity1.jpg" alt="地域に広がるコミュニティの様子"
+          style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
+        <h3 class="feature-title">コミュニティ機能</h3>
+        <p class="feature-en">Community</p>
+        <p class="feature-desc">図書・公園・多目的機能を通じて、さまざまなコミュニケーションが生まれています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. POWERUP -->
+  <section id="powerup">
+    <div class="powerup-grid">
+      <div class="powerup-left reveal">
+        <p class="powerup-badge">2025 UPDATE</p>
+        <h2>パワーアップ<br>しました！</h2>
+        <br>
+        <div class="powerup-items">
+          <div class="powerup-item">
+            <span class="powerup-num">01</span>
+            <div>
+              <p class="powerup-item-title">週5日オープンへ</p>
+              <p class="powerup-item-desc">火〜土曜日 10:00〜18:00。より多くの方に利用していただけるよう、開館日が増えました。</p>
+            </div>
+          </div>
+          <div class="powerup-item">
+            <span class="powerup-num">02</span>
+            <div>
+              <p class="powerup-item-title">蔵書数が大幅増</p>
+              <p class="powerup-item-desc">300冊 → 700冊 ＋ 寄付本1,500冊。より充実したラインナップでお待ちしています。</p>
+            </div>
+          </div>
+          <div class="powerup-item">
+            <span class="powerup-num">03</span>
+            <div>
+              <p class="powerup-item-title">新聞・雑誌コーナー新設</p>
+              <p class="powerup-item-desc">新聞5紙、雑誌15誌が閲覧可能に。情報の格差をなくす取り組みです。</p>
+            </div>
+          </div>
+          <div class="powerup-item">
+            <span class="powerup-num">04</span>
+            <div>
+              <p class="powerup-item-title">専門的サポート開始</p>
+              <p class="powerup-item-desc">レファレンス（調査相談）サービスを導入。知りたいことを一緒に探します。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="powerup-right reveal">
+        <span style="position:relative;z-index:1;letter-spacing:0.15em;">写真を配置</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. VOICES -->
+  <section id="voices">
+    <p class="section-label reveal">Voices</p>
+    <h2 class="section-title reveal">利用者の声</h2>
+    <div class="section-divider reveal"></div>
+    <div class="voices-grid">
+      <div class="voice-card reveal">
+        <div class="voice-quote">"</div>
+        <p class="voice-text">ここがなかったら、子育てどうなっていたかな？と思うことがよくあります。</p>
+        <p class="voice-attr">40代 女性</p>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-quote">"</div>
+        <p class="voice-text">みんなで集まって勉強できる場所が他にない</p>
+        <p class="voice-attr">中学生</p>
+      </div>
+      <div class="voice-card reveal">
+        <div class="voice-quote">"</div>
+        <p class="voice-text">疲れている時に行ってもよくて、長時間いてもいいところ</p>
+        <p class="voice-attr">30代 女性</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ACTIVITIES -->
+  <section id="activities">
+    <p class="section-label reveal">Activities</p>
+    <h2 class="section-title reveal">広がる活動</h2>
+    <div class="section-divider reveal"></div>
+    <div class="activities-grid reveal">
+      <div class="activity-card">
+        <img src="./bijutubu.jpg" alt="旧小鳩美術部" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+        <div class="activity-body">
+          <span class="activity-tag">Art</span>
+          <h3 class="activity-title">旧小鳩美術部</h3>
+          <p class="activity-desc">図書や公園の利用をきっかけに自然発生した、みんなの美術部。「描きたい」「作りたい」という思いを形にする、多世代が自由に表現を楽しむクリエイティブな活動の場となっています。
+          </p>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="./ivent.jpg" alt="イベント・ワークショップ"
+          style="width: 100%; height: 200px; object-fit: cover; display: block;">
+        <div class="activity-body">
+          <span class="activity-tag">Workshop</span>
+          <h3 class="activity-title">イベント・ワークショップ</h3>
+          <p class="activity-desc">絵本の読み聞かせや季節の工作、地域資源を活用した学びの場など、本や場所を起点とした多様なイベントを定期的に開催。新たな出会いや交流を育んでいます。</p>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="./sumaho.jpg" alt="おたすけスマホ" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+        <div class="activity-body">
+          <span class="activity-tag">Support</span>
+          <h3 class="activity-title">おたすけスマホ</h3>
+          <p class="activity-desc">スマートフォンなどデジタル機器の使い方が分からない方への個別サポート相談会。わからないことを気軽に聞ける環境が、世代を超えた温かなコミュニケーションを生んでいます。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="activities-stat reveal">
+      <div class="stat-numbers">
+        <div class="stat-item">
+          <div class="stat-num">21</div>
+          <div class="stat-label">回のイベントを実施</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">580<span style="font-size:0.5em;">+</span></div>
+          <div class="stat-label">名以上が参加</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. ACCESS -->
+  <section id="access">
+    <p class="section-label reveal">Visit Us</p>
+    <h2 class="section-title reveal">アクセス・開館情報</h2>
+    <div class="section-divider reveal"></div>
+    <div class="access-grid">
+      <div class="access-info reveal">
+        <div>
+          <p class="access-item-label">施設名</p>
+          <p class="access-item-value">CUE（旧小鳩保育所）</p>
+        </div>
+        <div>
+          <p class="access-item-label">住所</p>
+          <p class="access-item-value">〒786-0504<br>高知県高岡郡四万十町十川238-4</p>
+        </div>
+        <div>
+          <p class="access-item-label">開館時間</p>
+          <div class="access-hours">
+            <span class="access-hours-time">10:00 – 18:00</span>
+          </div>
+          <p class="access-hours-range" style="color:var(--text-mid);font-size:13px;margin-top:4px;">火曜日 〜 土曜日　／　日・月・祝日
+            休館</p>
+        </div>
+        <div>
+          <div class="access-badges">
+            <span class="access-badge">🚗 駐車場あり</span>
+            <span class="access-badge">📶 Free Wi-Fi</span>
+          </div>
+        </div>
+        <div class="access-note">
+          ※ 岡田理容室さんと溝渕商店さんの間の道を入ってください。
+        </div>
+      </div>
+      <div class="map-placeholder reveal">
+        <span style="position:relative;z-index:1;letter-spacing:0.15em;">Googleマップを埋め込む</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. SNS -->
+  <section id="sns">
+    <p class="section-label reveal">Follow Us</p>
+    <h2 class="section-title reveal">SNS・公式リンク</h2>
+    <div class="section-divider reveal" style="background:var(--light-moss);"></div>
+    <div class="sns-links reveal">
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">📘</span> Facebook
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">📷</span> Instagram
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">📝</span> note
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">💬</span> 公式LINE
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">育つ会とおわ</p>
+    <p class="footer-copy">© 2025 Sodatsukai Toowa. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Hero animation
+    document.querySelector('.hero-box').style.animation = 'fadeUp 1.2s ease forwards';
+    document.querySelector('.scroll-down').style.animation = 'fadeUp 1.5s 0.8s ease forwards';
+  </script>
+
+</body>
+
+</html>
