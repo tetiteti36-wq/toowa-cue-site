@@ -314,9 +314,9 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      max-width: 1000px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
@@ -329,6 +329,10 @@
 
     .about-card.mission {
       border-top-color: var(--moss);
+    }
+
+    .about-card.action {
+      border-top-color: var(--earth);
     }
 
     .about-card-en {
@@ -347,6 +351,24 @@
       color: var(--deep-earth);
       margin-bottom: 28px;
       letter-spacing: 0.08em;
+    }
+
+    .about-card-inline-sub {
+      font-size: 12px;
+      color: var(--earth);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-left: 8px;
+      font-family: var(--font-body);
+      vertical-align: middle;
+    }
+
+    .about-card-sub {
+      font-size: 12px;
+      color: var(--earth);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      font-family: var(--font-body);
     }
 
     .about-card-text {
@@ -1128,7 +1150,7 @@
     <ul class="nav-links">
       <li><a href="#about">わたしたちについて</a></li>
       <li><a href="#cue-name">NEWS</a></li>
-      <li><a href="#features">CUEキュー。</a></li>
+      <li><a href="#features">事業紹介</a></li>
       <li><a href="#access" class="nav-contact">お問い合わせ</a></li>
     </ul>
   </nav>
@@ -1137,9 +1159,7 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-box">
-      <p class="hero-sub">TOWA-SHIMANTO</p>
-      <h1 class="hero-title">十和の新しい<br>公共ものがたり</h1>
-      <p class="hero-org">育つ会とおわ</p>
+      <h1 class="hero-title">しまんと十和の<br>新しいものがたり</h1>
     </div>
     <div class="scroll-down">
       <span>Scroll</span>
@@ -1155,14 +1175,18 @@
     <div class="about-grid">
       <div class="about-card reveal">
         <p class="about-card-en">ビジョン</p>
-        <h3 class="about-card-ja">VISION</h3>
-        <p class="about-card-text">「遊び・学び・育ち合い」、誰もが楽しく、自分らしく。暮らしに主体的にコミットする、豊かな地域文化を次世代にしっかりと繋いでいきます。</p>
+        <h3 class="about-card-ja">VISION <span class="about-card-inline-sub">こんな未来にしたい</span></h3>
+        <p class="about-card-text">「遊び・学び・育ちあう」。誰もが楽しく、自分らしく暮らせる生活を育み、豊かな地域文化が次世代へと継がれている社会。</p>
       </div>
       <div class="about-card mission reveal">
         <p class="about-card-en">ミッション</p>
-        <h3 class="about-card-ja">MISSION</h3>
-        <p class="about-card-text">
-          図書・公園・多目的機能を備えた「開かれた場」を整えることで、多世代が安心して集える居場所が創出され、結果として対話や共感が自然に生まれ、温かなコミュニケーションを育むことに寄与します。</p>
+        <h3 class="about-card-ja">MISSION <span class="about-card-inline-sub">だから私たちはこれをする</span></h3>
+        <p class="about-card-text">居場所を通して人がつながり、地域のことを主体的に考え、行動する人が自然と育まれるように開かれた場所を整え、提供する。</p>
+      </div>
+      <div class="about-card action reveal">
+        <p class="about-card-en">アクション</p>
+        <h3 class="about-card-ja">ACTION <span class="about-card-inline-sub">具体的な手段・行動</span></h3>
+        <p class="about-card-text">図書・公園・多目的機能を備えたCUEキュー。を運営し、提供する。</p>
       </div>
     </div>
   </section>
