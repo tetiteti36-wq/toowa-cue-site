@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>育つ会とおわ | 十和の新しい公共ものがたり</title>
+  <title>育つ会とおわ | しまんと十和の新しい物語。</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -314,9 +314,9 @@
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 40px;
-      max-width: 1100px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -329,10 +329,6 @@
 
     .about-card.mission {
       border-top-color: var(--moss);
-    }
-
-    .about-card.action {
-      border-top-color: var(--earth);
     }
 
     .about-card-en {
@@ -351,24 +347,6 @@
       color: var(--deep-earth);
       margin-bottom: 28px;
       letter-spacing: 0.08em;
-    }
-
-    .about-card-inline-sub {
-      font-size: 12px;
-      color: var(--earth);
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      margin-left: 8px;
-      font-family: var(--font-body);
-      vertical-align: middle;
-    }
-
-    .about-card-sub {
-      font-size: 12px;
-      color: var(--earth);
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
-      font-family: var(--font-body);
     }
 
     .about-card-text {
@@ -1116,233 +1094,227 @@
       transform: translateY(0);
     }
 
-    /* ===== PART HEADERS ===== */
-    .part-header {
-      text-align: center;
-      padding: 64px 48px 48px;
-    }
-
-    .story-header {
-      background: var(--deep-earth);
-      color: white;
-    }
-
-    .facility-header {
-      background: #4a7c59;
-      color: white;
-    }
-
-    .part-label-en {
-      font-family: 'DM Serif Display', serif;
-      font-size: 12px;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-bottom: 12px;
-    }
-
-    .part-title {
-      font-family: var(--font-heading);
-      font-size: clamp(26px, 4vw, 38px);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-    }
-
-    .part-desc {
-      font-size: 14px;
-      opacity: 0.75;
-      letter-spacing: 0.08em;
-    }
-
-    /* ===== PART DIVIDER ===== */
-    .part-divider {
-      background: var(--text-dark);
-      color: white;
-      text-align: center;
-      padding: 96px 48px;
-    }
-
-    .part-divider-sub {
-      font-size: 13px;
-      letter-spacing: 0.3em;
-      opacity: 0.5;
-      margin-bottom: 16px;
-      font-family: 'DM Serif Display', serif;
-      text-transform: uppercase;
-    }
-
-    .part-divider-title {
-      font-family: var(--font-heading);
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 700;
-      color: var(--terracotta);
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .part-divider-desc {
-      font-size: 15px;
-      opacity: 0.6;
-      letter-spacing: 0.1em;
-    }
-
-    /* ===== PLACEHOLDER SECTION ===== */
-    .placeholder-section {
-      max-width: 800px;
+    /* ===== STORY CARDS ===== */
+    .story-cards {
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 48px;
-      border: 2px dashed var(--border);
-      text-align: center;
-      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
     }
 
-    .placeholder-section p {
-      font-size: 14px;
-      color: var(--text-light);
-      letter-spacing: 0.1em;
-    }
-
-    /* ===== ACCORDION CARDS ===== */
-    .accordion-grid {
+    .story-card {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 1100px;
-      margin: 0 auto 48px;
+      grid-template-columns: 90px 1fr;
+      border-bottom: 1px solid var(--border);
     }
 
-    .accordion-card {
-      background: var(--warm-white);
-      border-top: 3px solid var(--terracotta);
-      overflow: hidden;
+    .story-card:last-child {
+      border-bottom: none;
     }
 
-    .accordion-card.green {
-      border-top-color: var(--moss);
-    }
-
-    .accordion-trigger {
-      width: 100%;
+    .story-card-num {
+      background: var(--deep-earth);
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 32px 36px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      gap: 16px;
+      justify-content: center;
+      padding: 40px 12px;
     }
 
-    .accordion-trigger-text h3 {
+    .story-card-badge {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--light-moss);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+
+    .story-card-body {
+      background: var(--warm-white);
+      padding: 40px 48px;
+    }
+
+    .story-card-body h3 {
       font-family: var(--font-heading);
       font-size: 20px;
       font-weight: 700;
       color: var(--deep-earth);
-      letter-spacing: 0.06em;
-      margin-bottom: 4px;
-    }
-
-    .accordion-trigger-text p {
-      font-size: 12px;
-      color: var(--text-light);
-      letter-spacing: 0.1em;
-    }
-
-    .accordion-icon {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      border-radius: 50%;
-      background: var(--cream);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--earth);
-      transition: transform 0.4s ease;
-    }
-
-    .accordion-card.open .accordion-icon {
-      transform: rotate(45deg);
-    }
-
-    .accordion-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-
-    .accordion-body-inner {
-      padding: 0 36px 36px;
-    }
-
-    /* ===== あったらいいな BANNER ===== */
-    .attara-banner {
-      max-width: 1100px;
-      margin: 0 auto;
-      background: var(--deep-earth);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      overflow: hidden;
-    }
-
-    .attara-left {
-      padding: 64px 56px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .attara-label {
-      font-family: 'DM Serif Display', serif;
-      font-size: 11px;
-      letter-spacing: 0.35em;
-      color: var(--light-moss);
-      text-transform: uppercase;
       margin-bottom: 20px;
+      letter-spacing: 0.05em;
     }
 
-    .attara-title {
-      font-family: var(--font-heading);
-      font-size: clamp(22px, 3vw, 32px);
-      font-weight: 700;
-      color: white;
-      line-height: 1.7;
-      letter-spacing: 0.06em;
-      margin-bottom: 24px;
-    }
-
-    .attara-title span {
-      color: var(--terracotta);
-      font-size: clamp(28px, 4vw, 44px);
-    }
-
-    .attara-sub {
+    .story-card-body > p {
       font-size: 14px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.9;
+      line-height: 2;
+      color: var(--text-mid);
       font-weight: 300;
     }
 
-    .attara-right img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      min-height: 320px;
+    .story-card-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    /* ===== TIMELINE ===== */
-    .timeline {
-      max-width: 900px;
+    .story-card-body li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 300;
+      color: var(--text-mid);
+    }
+
+    .story-card-body li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      min-width: 6px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+
+    /* ===== VISION / MISSION / ACTION ===== */
+    #vision-mission {
+      background: var(--cream);
+    }
+
+    .vma-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      max-width: 1100px;
       margin: 0 auto;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .vma-card {
+      background: var(--warm-white);
+      padding: 48px 40px;
+    }
+
+    .vma-card.vision  { border-top: 3px solid var(--terracotta); }
+    .vma-card.mission { border-top: 3px solid var(--moss); }
+    .vma-card.action  { border-top: 3px solid var(--earth); }
+
+    .vma-card-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--earth);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .vma-card-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .vma-card-sub {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    .vma-card-text {
+      font-size: 14px;
+      line-height: 2;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    /* ===== TIMELINE / オープンまでの道のり ===== */
+    #timeline {
+      background: var(--warm-white);
+    }
+
+    .timeline-sub {
+      text-align: center;
+      font-size: 15px;
+      color: var(--terracotta);
+      letter-spacing: 0.15em;
+      margin-bottom: 64px;
+      font-family: var(--font-heading);
+      font-weight: 500;
+    }
+
+    .timeline-history {
+      max-width: 800px;
+      margin: 0 auto 96px;
+      border-left: 2px solid var(--border);
+      padding-left: 0;
+    }
+
+    .timeline-year {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      padding: 24px 0 24px 36px;
+      border-bottom: 1px solid var(--border);
       position: relative;
     }
 
-    .timeline::before {
+    .timeline-year:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-year::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 29px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--terracotta);
+    }
+
+    .year-badge {
+      font-family: 'DM Serif Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      letter-spacing: 0.05em;
+      padding-top: 2px;
+    }
+
+    .timeline-year h4 {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 6px;
+    }
+
+    .timeline-year p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--text-mid);
+      font-weight: 300;
+    }
+
+    .timeline-steps {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      position: relative;
+    }
+
+    .timeline-steps::before {
       content: '';
       position: absolute;
       left: 50%;
@@ -1353,195 +1325,176 @@
       transform: translateX(-50%);
     }
 
-    .timeline-item {
+    .timeline-step {
       display: grid;
       grid-template-columns: 1fr 60px 1fr;
-      gap: 0;
-      margin-bottom: 64px;
       align-items: center;
     }
 
-    .timeline-item:nth-child(odd) .timeline-content {
-      grid-column: 1;
-      text-align: right;
-      padding-right: 40px;
+    .step-content {
+      padding: 0 48px;
     }
 
-    .timeline-item:nth-child(odd) .timeline-img {
-      grid-column: 3;
-      padding-left: 40px;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-      grid-column: 3;
-      grid-row: 1;
-      text-align: left;
-      padding-left: 40px;
-    }
-
-    .timeline-item:nth-child(even) .timeline-img {
-      grid-column: 1;
-      grid-row: 1;
-      padding-right: 40px;
-    }
-
-    .timeline-dot {
-      grid-column: 2;
-      grid-row: 1;
-      width: 14px;
-      height: 14px;
-      background: var(--terracotta);
-      border-radius: 50%;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      flex-shrink: 0;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-dot { grid-column: 2; }
-    .timeline-item:nth-child(even) .timeline-dot { grid-column: 2; }
-
-    .timeline-phase {
+    .step-num {
       font-family: 'DM Serif Display', serif;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.25em;
       color: var(--terracotta);
-      margin-bottom: 8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
-    .timeline-title {
+    .step-title {
       font-family: var(--font-heading);
-      font-size: 18px;
+      font-size: clamp(20px, 2.5vw, 26px);
       font-weight: 700;
       color: var(--deep-earth);
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       letter-spacing: 0.05em;
+      line-height: 1.5;
     }
 
-    .timeline-text {
-      font-size: 13px;
+    .step-desc {
+      font-size: 14px;
       line-height: 2;
       color: var(--text-mid);
       font-weight: 300;
     }
 
-    .timeline-img img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 4px;
-      display: block;
+    .step-dot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
     }
 
-    .timeline-img.two-col {
+    .step-dot-inner {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--terracotta);
+    }
+
+    .step-images {
+      padding: 0 48px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4px;
+      gap: 8px;
     }
 
-    .timeline-img.two-col img {
-      aspect-ratio: 1/1;
+    .step-images.single {
+      grid-template-columns: 1fr;
     }
 
-    /* ===== 関わり方 ===== */
-    #join {
-      background: var(--cream);
-    }
-
-    .join-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      max-width: 1100px;
-      margin: 0 auto 40px;
-      background: var(--border);
-    }
-
-    .join-card {
-      background: var(--warm-white);
-      padding: 48px 36px;
-      transition: background 0.3s;
-      text-align: center;
-    }
-
-    .join-card:hover {
-      background: var(--deep-earth);
-    }
-
-    .join-card:hover .join-icon,
-    .join-card:hover .join-title,
-    .join-card:hover .join-desc {
-      color: white;
-    }
-
-    .join-icon {
-      font-size: 36px;
-      margin-bottom: 16px;
+    .step-images img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       display: block;
-      transition: color 0.3s;
     }
 
-    .join-title {
+    .step-img-placeholder {
+      width: 100%;
+      height: 220px;
+      background: var(--light-moss);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--moss);
+    }
+
+    .timeline-mini-list {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-mini-list li {
+      padding-left: 16px;
+      border-left: 2px solid var(--terracotta);
+    }
+
+    .timeline-mini-list li strong {
+      display: block;
       font-family: var(--font-heading);
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--deep-earth);
-      margin-bottom: 12px;
-      letter-spacing: 0.06em;
-      transition: color 0.3s;
+      margin-bottom: 4px;
     }
 
-    .join-desc {
+    .timeline-mini-list li p {
       font-size: 13px;
       line-height: 1.9;
       color: var(--text-mid);
       font-weight: 300;
-      transition: color 0.3s;
+      margin-top: 0;
     }
 
-    .join-card-wide {
-      grid-column: span 3;
-      background: var(--deep-earth);
-      color: white;
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
+    .placeholder-note {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-top: 16px;
+      letter-spacing: 0.05em;
     }
 
-    .join-card-wide .join-wide-text h3 {
-      font-family: var(--font-heading);
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
+    /* ===== INVOLVEMENT / CUEに関わる ===== */
+    #involvement {
+      background: var(--cream);
     }
 
-    .join-card-wide .join-wide-text p {
-      font-size: 13px;
-      opacity: 0.7;
-      line-height: 1.8;
+    .involvement-sub {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-mid);
+      margin-bottom: 64px;
     }
 
-    .join-btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--terracotta);
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      font-family: var(--font-heading);
-      font-weight: 700;
-      border-radius: 2px;
-      white-space: nowrap;
+    .involvement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .involvement-card {
+      background: var(--warm-white);
+      padding: 48px 36px;
+      text-align: center;
       transition: background 0.3s;
     }
 
-    .join-btn:hover {
-      background: var(--moss);
+    .involvement-card:hover {
+      background: var(--cream);
+    }
+
+    .involvement-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .involvement-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--deep-earth);
+      margin-bottom: 16px;
+      letter-spacing: 0.06em;
+    }
+
+    .involvement-desc {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--text-mid);
+      font-weight: 300;
     }
 
     /* ===== MOBILE ===== */
@@ -1575,51 +1528,80 @@
         border: none;
       }
 
+      .vma-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .involvement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .involvement-card {
+        padding: 36px 24px;
+      }
+
+      .story-card {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card-num {
+        padding: 16px 24px;
+        writing-mode: horizontal-tb;
+      }
+
+      .story-card-badge {
+        writing-mode: horizontal-tb;
+      }
+
+      .story-card-body {
+        padding: 28px 24px;
+      }
+
+      .timeline-history {
+        margin-bottom: 64px;
+      }
+
+      .timeline-year {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 20px 0 20px 28px;
+      }
+
+      .timeline-steps::before {
+        display: none;
+      }
+
+      .timeline-step {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .step-dot {
+        display: none;
+      }
+
+      .step-content {
+        padding: 0;
+      }
+
+      .step-images {
+        padding: 0;
+        grid-template-columns: 1fr;
+      }
+
+      .step-images img {
+        height: 220px;
+      }
+
       .features-grid {
         grid-template-columns: 1fr;
         /* スマホでは1列（縦並び）に変更 */
       }
 
       .voices-grid,
-      .activities-grid,
-      .join-grid {
+      .activities-grid {
         grid-template-columns: 1fr;
       }
-
-      .accordion-grid { grid-template-columns: 1fr; }
-
-      .attara-banner { grid-template-columns: 1fr; }
-      .attara-right img { min-height: 200px; }
-
-      .join-card-wide {
-        grid-column: span 1;
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .timeline::before { display: none; }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        margin-bottom: 48px;
-      }
-
-      .timeline-item:nth-child(odd) .timeline-content,
-      .timeline-item:nth-child(even) .timeline-content {
-        grid-column: 1;
-        grid-row: 2;
-        text-align: left;
-        padding: 16px 0 0;
-      }
-
-      .timeline-item:nth-child(odd) .timeline-img,
-      .timeline-item:nth-child(even) .timeline-img {
-        grid-column: 1;
-        grid-row: 1;
-        padding: 0;
-      }
-
-      .timeline-dot { display: none; }
 
       .stat-numbers {
         gap: 40px;
@@ -1641,20 +1623,19 @@
   <nav>
     <a href="#hero" class="nav-logo">育つ会とおわ</a>
     <ul class="nav-links">
-      <li><a href="#story">わたしたちの物語</a></li>
-      <li><a href="#cue">CUEキュー。</a></li>
-      <li><a href="#access">アクセス</a></li>
-      <li><a href="#join">関わる</a></li>
-      <li><a href="mailto:sodatsukaitowa@gmail.com" class="nav-contact">お問い合わせ</a></li>
+      <li><a href="#cue-about">わたしたちについて</a></li>
+      <li><a href="#cue-name">NEWS</a></li>
+      <li><a href="#features">CUEキュー。</a></li>
+      <li><a href="#access" class="nav-contact">お問い合わせ</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- 1. HERO -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-box">
-      <p class="hero-sub">Sodatsukai Toowa</p>
-      <h1 class="hero-title">しまんと十和の<br>新しいものがたり</h1>
+      <p class="hero-sub">SODATSUKAI TOOWA</p>
+      <h1 class="hero-title">あったらいいな、を育てていく。<br>しまんと十和の新しい物語。</h1>
       <p class="hero-org">育つ会とおわ</p>
     </div>
     <div class="scroll-down">
@@ -1663,247 +1644,199 @@
     </div>
   </section>
 
-  <!-- ========== PART 1: 育つ会とおわの物語 ========== -->
-  <div id="story" class="part-header story-header">
-    <p class="part-label-en reveal">Chapter 01</p>
-    <h2 class="part-title reveal">育つ会とおわの物語</h2>
-    <p class="part-desc reveal">なぜ、この団体は存在するのか。</p>
-  </div>
-
-  <!-- 1-0 & 1-1. 地域紹介 + 課題 アコーディオン -->
-  <section style="background: var(--cream);">
-    <p class="section-label reveal">Our Starting Point</p>
-    <h2 class="section-title reveal">なぜ、CUEは生まれたのか</h2>
-
-    <div class="accordion-grid reveal">
-
-      <!-- 左：四万十町十和というところ -->
-      <div class="accordion-card green" id="acc-towa">
-        <button class="accordion-trigger" onclick="toggleAccordion('acc-towa')" aria-expanded="false">
-          <div class="accordion-trigger-text">
-            <h3>四万十町十和というところ</h3>
-            <p>タップして詳しく見る — 2025年時点</p>
-          </div>
-          <div class="accordion-icon">+</div>
-        </button>
-        <div class="accordion-body">
-          <div class="accordion-body-inner">
-            <p style="font-size:14px;line-height:2.2;color:var(--text-mid);font-weight:300;margin-bottom:24px;">
-              四万十町は、2006年に窪川町・大正町・十和村の2町1村が合併して誕生した町。十和地域はその西端にあたり、四万十川の中流域に位置します。東から西に四万十川が蛇行し、流域沿いに農地が点在。総面積の約9割を山林が占める、深い緑の山あいの地域です。
-            </p>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-bottom:24px;">
-              <div style="background:var(--cream);padding:24px;text-align:center;">
-                <p style="font-family:'DM Serif Display',serif;font-size:38px;color:var(--deep-earth);line-height:1;">2,190</p>
-                <p style="font-size:11px;letter-spacing:0.15em;color:var(--earth);margin-top:4px;">十和地域の人口（人）</p>
-              </div>
-              <div style="background:var(--cream);padding:24px;text-align:center;">
-                <p style="font-family:'DM Serif Display',serif;font-size:38px;color:var(--deep-earth);line-height:1;">87<span style="font-size:18px;">%</span></p>
-                <p style="font-size:11px;letter-spacing:0.15em;color:var(--earth);margin-top:4px;">総面積に占める林野率</p>
-              </div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div>
-                <p style="font-size:10px;letter-spacing:0.2em;color:var(--earth);margin-bottom:6px;font-family:'DM Serif Display',serif;text-transform:uppercase;">日本における位置</p>
-                <img src="./地図/shimanto-town-map.jpg" alt="日本地図上の四万十町" style="width:100%;height:auto;display:block;">
-              </div>
-              <div>
-                <p style="font-size:10px;letter-spacing:0.2em;color:var(--earth);margin-bottom:6px;font-family:'DM Serif Display',serif;text-transform:uppercase;">四万十町内の十和地域</p>
-                <img src="./地図/shimanto-town-area-map.jpg" alt="四万十町内の地図" style="width:100%;height:auto;display:block;">
-              </div>
-            </div>
-            <p style="font-size:11px;color:var(--text-light);margin-top:12px;">※ 四万十町「町のうごき」2025年時点のデータをもとに作成</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 右：地域の課題 -->
-      <div class="accordion-card" id="acc-issues">
-        <button class="accordion-trigger" onclick="toggleAccordion('acc-issues')" aria-expanded="false">
-          <div class="accordion-trigger-text">
-            <h3>地域の課題</h3>
-            <p>タップして詳しく見る</p>
-          </div>
-          <div class="accordion-icon">+</div>
-        </button>
-        <div class="accordion-body">
-          <div class="accordion-body-inner">
-            <ul style="list-style:none;display:flex;flex-direction:column;gap:20px;">
-              <li style="display:flex;gap:14px;font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;padding-bottom:20px;border-bottom:1px solid var(--border);">
-                <span style="color:var(--terracotta);font-weight:700;min-width:20px;margin-top:2px;">01</span>
-                <span>図書館・書店・遊具のある公園が<strong style="color:var(--deep-earth);">地域内に存在しない</strong></span>
-              </li>
-              <li style="display:flex;gap:14px;font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;padding-bottom:20px;border-bottom:1px solid var(--border);">
-                <span style="color:var(--terracotta);font-weight:700;min-width:20px;margin-top:2px;">02</span>
-                <span>都市部との<strong style="color:var(--deep-earth);">情報・体験の格差</strong>がある</span>
-              </li>
-              <li style="display:flex;gap:14px;font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;padding-bottom:20px;border-bottom:1px solid var(--border);">
-                <span style="color:var(--terracotta);font-weight:700;min-width:20px;margin-top:2px;">03</span>
-                <span>子どもたちをはじめ、住民が<strong style="color:var(--deep-earth);">気軽に集える場所がない</strong></span>
-              </li>
-              <li style="display:flex;gap:14px;font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;padding-bottom:20px;border-bottom:1px solid var(--border);">
-                <span style="color:var(--terracotta);font-weight:700;min-width:20px;margin-top:2px;">04</span>
-                <span>悪天候時に<strong style="color:var(--deep-earth);">安心して過ごせる場所がない</strong></span>
-              </li>
-              <li style="display:flex;gap:14px;font-size:14px;line-height:1.9;color:var(--text-mid);font-weight:300;">
-                <span style="color:var(--terracotta);font-weight:700;min-width:20px;margin-top:2px;">05</span>
-                <span>廃園になった旧小鳩保育所。「寂しくなった」「防犯上も心配」<strong style="color:var(--deep-earth);">再活用を望む声</strong>があった</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- あったらいいな バナー -->
-    <div class="attara-banner reveal">
-      <div class="attara-left">
-        <p class="attara-label">So We Started</p>
-        <p class="attara-title">そこでこれらの声を元に、<br><span>「あったらいいな」</span><br>を実現しました。</p>
-        <p class="attara-sub">補助金も、設備も、何もなかった。<br>それでも「自分たちでやればいい」と立ち上がった人たちがいた。</p>
-      </div>
-      <div class="attara-right">
-        <img src="./cue-about-image.jpg" alt="CUEの様子">
-      </div>
-    </div>
-  </section>
-
-  <!-- 1-2. オープンまでの道のり -->
-  <section style="background: var(--warm-white);">
+  <!-- 3. CUE ABOUT -->
+  <section id="cue-about">
     <p class="section-label reveal">Story</p>
-    <h2 class="section-title reveal">オープンまでの道のり</h2>
-    <p style="text-align:center;font-size:14px;color:var(--text-mid);margin-bottom:64px;letter-spacing:0.08em;" class="reveal">ボランティアで始めた、手作りの物語。</p>
+    <h2 class="section-title reveal">なぜ育つ会とおわは生まれたのか</h2>
+    <div class="section-divider reveal"></div>
+    <div class="story-cards reveal">
 
-    <div class="timeline">
-
-      <div class="timeline-item reveal">
-        <div class="timeline-content">
-          <p class="timeline-phase">Step 01</p>
-          <h3 class="timeline-title">まず、草を刈るところから。</h3>
-          <p class="timeline-text">廃園になった旧小鳩保育所。使われなくなった建物と庭は、草が生い茂っていました。最初の作業は、草刈り。誰かに頼まれたわけでもなく、「ここをどうにかしたい」という思いだけで、集まった人たちと一緒に手を動かしました。</p>
+      <!-- カード1: 背景 -->
+      <div class="story-card">
+        <div class="story-card-num">
+          <span class="story-card-badge">背景</span>
         </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-img two-col">
-          <img src="./オープン前後の画像/草刈り前後/IMG20220429162848.jpg" alt="草刈り前の様子">
-          <img src="./オープン前後の画像/草刈り前後/IMG20220502133631.jpg" alt="草刈り後の様子">
+        <div class="story-card-body">
+          <h3>四万十町十和というところ</h3>
+          <p>高知県西部、四万十川の中流域に位置する四万十町十和地域。山と川に囲まれた豊かな自然の中に、約2,000人が暮らす小さな地域です。町の中心からは離れており、図書館や書店、公園といった施設が身近にない環境が続いていました。</p>
         </div>
       </div>
 
-      <div class="timeline-item reveal">
-        <div class="timeline-img">
-          <img src="./オープン前後の画像/棚は段ボールなど.jpg" alt="段ボールで作った棚">
+      <!-- カード2: 課題 -->
+      <div class="story-card">
+        <div class="story-card-num">
+          <span class="story-card-badge">課題</span>
         </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <p class="timeline-phase">Step 02</p>
-          <h3 class="timeline-title">棚は、段ボールで。</h3>
-          <p class="timeline-text">予算も、設備も、何もなかった。それでも「本を置きたい」という気持ちは本物でした。最初の本棚は、段ボール。不格好でも、それがCUEの出発点でした。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-content">
-          <p class="timeline-phase">Step 03</p>
-          <h3 class="timeline-title">地域が、動き出した。</h3>
-          <p class="timeline-text">噂を聞いた地元のお父さんたちが机を運んできてくれた。地元の大工さんがベンチを手作りしてくれた。「何かできることある？」という声が、少しずつ集まってきました。</p>
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-img two-col">
-          <img src="./オープン前後の画像/地元のお父さんたちが机を運びこんでくれてる.jpg" alt="地元のお父さんたちが机を運ぶ様子">
-          <img src="./オープン前後の画像/地元の大工さん手作りベンチ.jpg" alt="地元の大工さん手作りベンチ">
+        <div class="story-card-body">
+          <h3>地域にはこんな課題がありました</h3>
+          <ul>
+            <li>図書館・書店・遊具のある公園がない</li>
+            <li>情報・体験の格差がある</li>
+            <li>子どもたちを始め住民が気軽に集える場所がない</li>
+            <li>悪天候時に安心して過ごせる場所がない</li>
+            <li>廃園となった空き施設周辺から寂しくなった、防犯上も心配、再活用の声があった</li>
+          </ul>
         </div>
       </div>
 
-      <div class="timeline-item reveal">
-        <div class="timeline-img">
-          <img src="./オープン前後の画像/飾り付け.jpg" alt="手作りの飾り付け">
+      <!-- カード3: そこで -->
+      <div class="story-card">
+        <div class="story-card-num">
+          <span class="story-card-badge">そこで</span>
         </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <p class="timeline-phase">Step 04</p>
-          <h3 class="timeline-title">みんなで飾り付けて。</h3>
-          <p class="timeline-text">オープンが近づくにつれて、準備はどんどん楽しくなっていきました。手作りの飾り付けが、建物を少しずつ「場所」に変えていきました。</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-content">
-          <p class="timeline-phase">Step 05</p>
-          <h3 class="timeline-title">贈りものが、届いた。</h3>
-          <p class="timeline-text">地域の保育園の子どもたちから、手描きのイラスト入りコップが届いた。協力隊からはパンの差し入れ。当時の本館館長が読み聞かせに来てくれた。「一緒に作りたい」という気持ちが、形になっていきました。</p>
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-img two-col">
-          <img src="./オープン前後の画像/保育園児のイラスト入りコップ.jpg" alt="保育園児からのイラスト入りコップ">
-          <img src="./オープン前後の画像/協力隊よりパンの差し入れ.jpg" alt="協力隊からのパンの差し入れ">
-        </div>
-      </div>
-
-      <div class="timeline-item reveal">
-        <div class="timeline-img">
-          <img src="./オープン前後の画像/オープン前準備には近所のワンコも.jpg" alt="オープン前準備の様子">
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <p class="timeline-phase">Open</p>
-          <h3 class="timeline-title">そして、オープン。</h3>
-          <p class="timeline-text">近所のワンコも見守る中、CUEキュー。は静かに扉を開けました。段ボール棚から始まったこの場所は、今も地域の「きっかけ」と「手がかり」であり続けています。</p>
+        <div class="story-card-body">
+          <h3>これらの声を元に「あったらいいな」を実現することにしました</h3>
+          <img src="./cue-about-image.jpg" alt="あったらいいなを実現したCUEの様子"
+            style="width: 100%; max-width: 480px; height: auto; border-radius: 8px; margin-top: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 1-3. じゃあ、自分たちでやろう -->
-  <section style="background: var(--cream);">
-    <p class="section-label reveal">Decision</p>
-    <h2 class="section-title reveal">じゃあ、自分たちでやろう。</h2>
-    <div style="max-width:760px;margin:0 auto;" class="reveal">
-      <p style="font-size:16px;line-height:2.4;color:var(--text-dark);font-weight:300;font-family:'Noto Sans JP',sans-serif;margin-bottom:32px;">
-        図書館も書店もない。公園もない。子どもたちが雨の日に安心して過ごせる場所もない。<br>
-        十和に住んでいれば、それは「あたりまえ」のことでした。<br><br>
-        でも、そのあたりまえに疑問を持つ人たちがいた。<br>
-        「誰かがやってくれるのを待つんじゃなく、自分たちでやればいいんじゃないか。」<br><br>
-        補助金もなく、専門知識もなく、ツテもなかった。<br>
-        最初は有志のボランティアが集まって、廃園になった旧小鳩保育所を掃除するところから始めました。<br>
-        棚は段ボールで代用しました。机は地元のお父さんたちが運んでくれました。<br>
-        ベンチは地元の大工さんが手作りしてくれました。<br><br>
-        それが、育つ会とおわの始まりです。
-      </p>
-      <div style="display:flex;gap:32px;flex-wrap:wrap;">
-        <img src="./オープン前後の画像/オープン告知チラシ.jpg" alt="オープン告知チラシ" style="width:240px;height:180px;object-fit:cover;border-radius:4px;">
-        <img src="./オープン前後の画像/当時の本館館長の読み聞かせ.jpg" alt="当時の本館館長の読み聞かせ" style="width:240px;height:180px;object-fit:cover;border-radius:4px;">
-        <img src="./オープン前後の画像/寄付された鯉のぼり.jpg" alt="寄付された鯉のぼり" style="width:240px;height:180px;object-fit:cover;border-radius:4px;">
-      </div>
-    </div>
-  </section>
-
-  <!-- 1-4. VISION / MISSION / ACTION -->
-  <section id="about" style="background: var(--warm-white);">
+  <!-- VISION / MISSION / ACTION -->
+  <section id="vision-mission">
     <p class="section-label reveal">About Us</p>
     <h2 class="section-title reveal">わたしたちについて</h2>
-    <div class="about-grid">
-      <div class="about-card reveal">
-        <p class="about-card-en">ビジョン</p>
-        <h3 class="about-card-ja">VISION <span class="about-card-inline-sub">こんな未来にしたい</span></h3>
-        <p class="about-card-text">「遊び・学び・育ちあう」。誰もが楽しく、自分らしく暮らせる生活を育み、豊かな地域文化が次世代へと継がれている未来を目指します。</p>
+    <div class="vma-grid reveal">
+      <div class="vma-card vision">
+        <p class="vma-card-label">ビジョン</p>
+        <h3 class="vma-card-title">VISION</h3>
+        <p class="vma-card-sub">こんな未来にしたい</p>
+        <p class="vma-card-text">「遊び・学び・育ちあう」。誰もが楽しく、自分らしく暮らせる生活を育み、豊かな地域文化が次世代へと継がれている未来を目指します。</p>
       </div>
-      <div class="about-card mission reveal">
-        <p class="about-card-en">ミッション</p>
-        <h3 class="about-card-ja">MISSION <span class="about-card-inline-sub">だから私たちはこれをする</span></h3>
-        <p class="about-card-text">居場所を通して人がつながり、地域のことを主体的に考え、行動する人が自然と育まれるように開かれた場所を整え、提供します。</p>
+      <div class="vma-card mission">
+        <p class="vma-card-label">ミッション</p>
+        <h3 class="vma-card-title">MISSION</h3>
+        <p class="vma-card-sub">だから私たちはこれをする</p>
+        <p class="vma-card-text">居場所を通して人がつながり、地域のことを主体的に考え、行動する人が自然と育まれるように開かれた場所を整え、提供します。</p>
       </div>
-      <div class="about-card action reveal">
-        <p class="about-card-en">アクション</p>
-        <h3 class="about-card-ja">ACTION <span class="about-card-inline-sub">具体的な手段・行動</span></h3>
-        <p class="about-card-text">図書・公園・多目的機能を備えたCUEキュー。を運営します。</p>
+      <div class="vma-card action">
+        <p class="vma-card-label">アクション</p>
+        <h3 class="vma-card-title">ACTION</h3>
+        <p class="vma-card-sub">具体的な手段・行動</p>
+        <p class="vma-card-text">図書・公園・多目的機能を備えたCUEキュー。を運営します。</p>
       </div>
     </div>
   </section>
 
-  <!-- 1-5. CUEキュー。の誕生 -->
-  <section id="cue-name" style="background-color: var(--warm-white); background-image: url('./23500448.png'); background-position: bottom center; background-repeat: repeat-x; background-size: 800px auto; text-align: center; padding: 100px 48px; padding-bottom: 240px;">
-    <p class="section-label reveal">Birth</p>
-    <p class="section-title reveal" style="font-size: 15px; letter-spacing: 0.15em; color: var(--earth); margin-bottom: 32px;">そして生まれたのが——</p>
+  <!-- 3.5 TIMELINE / オープンまでの道のり -->
+  <section id="timeline">
+    <p class="section-label reveal">Story</p>
+    <h2 class="section-title reveal">オープンまでの道のり</h2>
+    <p class="timeline-sub reveal">ボランティアで始めた、手作りの物語。</p>
+
+    <!-- 年表 -->
+    <div class="timeline-history reveal">
+      <div class="timeline-year">
+        <span class="year-badge">2017年度</span>
+        <div>
+          <p>四万十町の文化的施設をめぐる検討をきっかけに、十和地域に必要な環境と場について考える人たちが集まり、チラシ配布やイベントを開催しました。</p>
+        </div>
+      </div>
+      <div class="timeline-year">
+        <span class="year-badge">2022年2月</span>
+        <div>
+          <h4>旧小鳩保育所の貸出に応募</h4>
+          <p>閉所していた園舎、旧小鳩保育所を地域で再び活用するための施設運用の公募に応募しました。</p>
+        </div>
+      </div>
+      <div class="timeline-year">
+        <span class="year-badge">2022年5月</span>
+        <div>
+          <h4>モデル事業として活用開始</h4>
+          <p>図書、公園、多目的機能の提供を始め、地域の人が本や体験、交流に触れられる場が少しずつ動きだしました。</p>
+          <ul class="timeline-mini-list">
+            <li>
+              <strong>まず草を刈るところから。</strong>
+              <p>大人から子どもまで手入れをして整備しました。</p>
+            </li>
+            <li>
+              <strong>棚は段ボールで。</strong>
+              <p>最初の本棚は段ボール。不格好でもそこから始まりました。</p>
+            </li>
+            <li>
+              <strong>勉強机が寄付されました。</strong>
+              <p>地元のお父さんたちがセッティング。</p>
+            </li>
+            <li>
+              <strong>みんなで飾り付け。</strong>
+              <p>オープンが近づくにつれて、準備はどんどん楽しくなっていきました。手作りの飾り付けが、建物を少しずつ「みんなの場所」に変えていきました。</p>
+            </li>
+            <li>
+              <strong>贈りものが、届いた。</strong>
+              <p>地域の保育園の子どもたちから、手描きのイラスト入りコップが届いた。協力隊からはパンの差し入れ。当時の本館館長が読み聞かせに来てくれた。「一緒に作りたい」という気持ちが、形になっていきました。</p>
+            </li>
+            <li>
+              <strong>そして、オープン。</strong>
+              <p>旧小鳩保育所での活動は静かに扉を開けました。段ボール棚から始まったこの場所を、今も地域の「きっかけ」と「手がかり」であり続けられるよう育てていきたいと思います。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-year">
+        <span class="year-badge">2022年〜2025年3月</span>
+        <div>
+          <h4>3年間のボランティア事業（愛称：旧コバ）</h4>
+          <p>住民が主体となって「遊び、学び、育ち合う」環境と場をつくる任意団体として、地域の「あったらいいな」を形にしてきました。</p>
+          <ul class="timeline-mini-list">
+            <li>
+              <strong>図書・情報</strong>
+              <p>図書700冊、寄付本1,500冊、新聞5紙、雑誌約15冊を提供。毎月約900部の広報紙を配布。</p>
+            </li>
+            <li>
+              <strong>居場所・公園</strong>
+              <p>未就学児から中学生、保護者までが自由に過ごせる「三間（時間・空間・仲間）」を提供。ファミサポの場、学習場所としても活用。</p>
+            </li>
+            <li>
+              <strong>文化・学び</strong>
+              <p>美術部（2023年6月〜）、イベント21回・延べ約580人参加、ワークショップ、学習の場を創出。</p>
+            </li>
+            <li>
+              <strong>相談・つながり</strong>
+              <p>スマホ相談、子育て相談、ファミリーサポートの場として活用。役場関係課との月例会を実施。</p>
+            </li>
+          </ul>
+          <p class="placeholder-note">※ 仮置きのデータです。整理後に更新予定。</p>
+        </div>
+      </div>
+      <div class="timeline-year">
+        <span class="year-badge">2025年度〜</span>
+        <div>
+          <h4>町の委託事業へと移行（愛称：CUEキュー。）</h4>
+          <p>3年間のボランティア事業時代から、大幅にサービスを拡充し、現在も利用者数を伸ばしています。2026年6月現在時点で累計6,600人超（十和地域総人口：約2,100人）</p>
+          <ul class="timeline-mini-list">
+            <li>
+              <strong>週5日オープンへ</strong>
+              <p>火〜土曜日 10:00〜18:00。より多くの方に利用していただけるよう、開館日が増えました。</p>
+            </li>
+            <li>
+              <strong>蔵書数が大幅増</strong>
+              <p>300冊 → 700冊 ＋ 寄付本1,500冊。より充実したラインナップでお待ちしています。</p>
+            </li>
+            <li>
+              <strong>新聞・雑誌コーナー新設</strong>
+              <p>新聞5紙、雑誌15誌が閲覧可能に。情報の格差をなくす取り組みです。</p>
+            </li>
+            <li>
+              <strong>専門的サポート開始</strong>
+              <p>レファレンス（調査相談）サービスを導入。知りたいことを一緒に探します。</p>
+            </li>
+            <li>
+              <strong>ビジョン：十和図書館分館へ</strong>
+              <p>四万十町立十和図書館分館の整備が検討中。住民と行政が育んできた「小さな新しい公共」の実績をつなげたいと考えています。</p>
+            </li>
+          </ul>
+          <p class="placeholder-note">※ 仮置きのデータです。整理後に更新予定。</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 4. CUE NAME -->
+  <section id="cue-name">
+    <p class="section-label reveal">Identity</p>
     <div class="cue-name-main reveal">CUE</div>
     <div class="cue-name-kana reveal">キュー。</div>
     <div class="cue-name-sub reveal">きっかけ・手がかり</div>
@@ -1915,32 +1848,21 @@
     </p>
   </section>
 
-  <!-- ========== PART DIVIDER ========== -->
-  <div class="part-divider">
-    <p class="part-divider-sub">では、実際に来てみてください</p>
-    <div class="part-divider-title">CUEキュー。</div>
-    <p class="part-divider-desc">十和に「きっかけ」と「手がかり」を。</p>
-  </div>
-
-  <!-- ========== PART 2: CUEキュー。という場所 ========== -->
-  <div id="cue" class="part-header facility-header">
-    <p class="part-label-en reveal">Chapter 02</p>
-    <h2 class="part-title reveal">CUEキュー。という場所</h2>
-    <p class="part-desc reveal">実際に何があって、何ができるのか。</p>
-  </div>
-
-  <!-- 2-1. 施設の機能 -->
-  <section id="features" style="background: var(--cream);">
+  <!-- 5. FEATURES -->
+  <section id="features">
     <p class="section-label reveal">Services</p>
-    <h2 class="section-title reveal">施設の機能</h2>
+    <h2 class="section-title reveal">CUEキュー。の機能</h2>
+    <div class="section-divider reveal"></div>
     <div class="features-grid reveal">
       <div class="feature-card">
         <p class="feature-num">01</p>
+        <!-- アイコンの代わりに画像を配置します -->
         <img src="./IMG20231104150017 (1).jpg" alt="子どもたちが本を読む様子"
           style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;">
         <h3 class="feature-title">図書機能</h3>
         <p class="feature-en">Library</p>
-        <p class="feature-desc">カリコレサービス(クラウド型の図書の貸出サービス)を活用し、町立・県立図書館と連携して常時700冊の図書を月1回の入替を行い提供。合わせて寄付本1500冊も貸出しています。</p>
+        <p class="feature-desc">カリコレサービス(クラウド型の図書の貸出サービス)を活用し、町立・県立図書館と連携して常時700冊の図書を月1回の入替を行い提供。合わせて寄付本1500冊も貸出しています。
+        </p>
       </div>
       <div class="feature-card">
         <p class="feature-num">02</p>
@@ -1969,58 +1891,11 @@
     </div>
   </section>
 
-  <!-- 2-2. 活動・イベント -->
-  <section id="activities" style="background: var(--warm-white);">
-    <p class="section-label reveal">Activities</p>
-    <h2 class="section-title reveal">活動・イベント</h2>
-    <div class="activities-grid reveal">
-      <div class="activity-card">
-        <img src="./bijutubu.jpg" alt="旧小鳩美術部" style="width: 100%; height: 200px; object-fit: cover; display: block;">
-        <div class="activity-body">
-          <span class="activity-tag">Art</span>
-          <h3 class="activity-title">旧小鳩美術部</h3>
-          <p class="activity-desc">図書や公園の利用をきっかけに自然発生した、みんなの美術部。「描きたい」「作りたい」という思いを形にする、多世代が自由に表現を楽しむクリエイティブな活動の場となっています。</p>
-          <a href="https://tetiteti36-wq.github.io/kobato-art-site/" target="_blank" class="activity-link">美術部サイトを見る →</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="./ivent.jpg" alt="イベント・ワークショップ" style="width: 100%; height: 200px; object-fit: cover; display: block;">
-        <div class="activity-body">
-          <span class="activity-tag">Workshop</span>
-          <h3 class="activity-title">イベント・ワークショップ</h3>
-          <p class="activity-desc">絵本の読み聞かせや季節の工作、地域資源を活用した学びの場など、本や場所を起点とした多様なイベントを定期的に開催。新たな出会いや交流を育んでいます。</p>
-          <span class="ochadou-tag">月1開催</span>
-          <p class="activity-desc" style="margin-top:12px;">地域おこし協力隊と一緒に「<strong>お茶堂</strong>」を毎月開催。お茶を飲みながら、ゆるやかに人がつながる場です。</p>
-          <a href="https://tetiteti36-wq.github.io/towaochadou-site/" target="_blank" class="activity-link">お茶堂サイトを見る →</a>
-        </div>
-      </div>
-      <div class="activity-card">
-        <img src="./sumaho.jpg" alt="おたすけスマホ" style="width: 100%; height: 200px; object-fit: cover; display: block;">
-        <div class="activity-body">
-          <span class="activity-tag">Support</span>
-          <h3 class="activity-title">おたすけスマホ</h3>
-          <p class="activity-desc">スマートフォンなどデジタル機器の使い方が分からない方への個別サポート相談会。わからないことを気軽に聞ける環境が、世代を超えた温かなコミュニケーションを生んでいます。</p>
-        </div>
-      </div>
-    </div>
-    <div class="activities-stat reveal">
-      <div class="stat-numbers">
-        <div class="stat-item">
-          <div class="stat-num">21</div>
-          <div class="stat-label">回のイベントを実施</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">580<span style="font-size:0.5em;">+</span></div>
-          <div class="stat-label">名以上が参加</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2-3. 利用者の声 -->
-  <section id="voices" style="background: var(--cream);">
+  <!-- 7. VOICES -->
+  <section id="voices">
     <p class="section-label reveal">Voices</p>
     <h2 class="section-title reveal">利用者の声</h2>
+    <div class="section-divider reveal"></div>
     <div class="voices-grid">
       <div class="voice-card reveal">
         <div class="voice-quote">"</div>
@@ -2040,10 +1915,90 @@
     </div>
   </section>
 
-  <!-- 2-4. アクセス・開館情報 -->
-  <section id="access" style="background: var(--warm-white);">
+  <!-- 8. ACTIVITIES -->
+  <section id="activities">
+    <p class="section-label reveal">Activities</p>
+    <h2 class="section-title reveal">広がる活動</h2>
+    <div class="section-divider reveal"></div>
+    <div class="activities-grid reveal">
+      <div class="activity-card">
+        <img src="./bijutubu.jpg" alt="旧小鳩美術部" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+        <div class="activity-body">
+          <span class="activity-tag">Art</span>
+          <h3 class="activity-title">旧小鳩美術部</h3>
+          <p class="activity-desc">図書や公園の利用をきっかけに自然発生した、みんなの美術部。「描きたい」「作りたい」という思いを形にする、多世代が自由に表現を楽しむクリエイティブな活動の場となっています。</p>
+          <a href="https://tetiteti36-wq.github.io/kobato-art-site/" target="_blank" class="activity-link">美術部サイトを見る →</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="./ivent.jpg" alt="イベント・ワークショップ"
+          style="width: 100%; height: 200px; object-fit: cover; display: block;">
+        <div class="activity-body">
+          <span class="activity-tag">Workshop</span>
+          <h3 class="activity-title">イベント・ワークショップ</h3>
+          <p class="activity-desc">絵本の読み聞かせや季節の工作、地域資源を活用した学びの場など、本や場所を起点とした多様なイベントを定期的に開催。新たな出会いや交流を育んでいます。</p>
+          <span class="ochadou-tag">月1開催</span>
+          <p class="activity-desc" style="margin-top:12px;">地域おこし協力隊と一緒に「<strong>お茶堂</strong>」を毎月開催。お茶を飲みながら、ゆるやかに人がつながる場です。</p>
+          <a href="https://tetiteti36-wq.github.io/towaochadou-site/" target="_blank" class="activity-link">お茶堂サイトを見る →</a>
+        </div>
+      </div>
+      <div class="activity-card">
+        <img src="./sumaho.jpg" alt="おたすけスマホ" style="width: 100%; height: 200px; object-fit: cover; display: block;">
+        <div class="activity-body">
+          <span class="activity-tag">Support</span>
+          <h3 class="activity-title">おたすけスマホ</h3>
+          <p class="activity-desc">スマートフォンなどデジタル機器の使い方が分からない方への個別サポート相談会。わからないことを気軽に聞ける環境が、世代を超えた温かなコミュニケーションを生んでいます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. INVOLVEMENT / CUEに関わる -->
+  <section id="involvement">
+    <p class="section-label reveal">Get Involved</p>
+    <h2 class="section-title reveal">CUEに関わる</h2>
+    <p class="involvement-sub reveal">あなたの関わり方で、十和が変わる。</p>
+
+    <div class="involvement-grid">
+      <div class="involvement-card reveal">
+        <span class="involvement-icon">📚</span>
+        <p class="involvement-title">利用する</p>
+        <p class="involvement-desc">本を借りたい、作業したい、ただぼーっとしたい。どんな使い方でも大歓迎。火〜土 10:00〜18:00、入場無料です。</p>
+      </div>
+      <div class="involvement-card reveal">
+        <span class="involvement-icon">🤝</span>
+        <p class="involvement-title">ボランティアする</p>
+        <p class="involvement-desc">本の整理、イベントのお手伝い、得意なことを活かしてCUEを一緒に育ててみませんか。経験不問、気軽にご連絡を。</p>
+      </div>
+      <div class="involvement-card reveal">
+        <span class="involvement-icon">💛</span>
+        <p class="involvement-title">寄付で応援する</p>
+        <p class="involvement-desc">本の寄付、資金での応援、どちらも大切な力になります。CUEの運営はみなさんの支えで続いています。</p>
+      </div>
+      <div class="involvement-card reveal">
+        <span class="involvement-icon">🌍</span>
+        <p class="involvement-title">関係人口になる</p>
+        <p class="involvement-desc">十和に住んでいなくてもOK。SNSでシェアする、友人に話す、遠くから応援する──それだけで十分つながりになります。</p>
+      </div>
+      <div class="involvement-card reveal">
+        <span class="involvement-icon">🗺️</span>
+        <p class="involvement-title">旅・観光で訪れる</p>
+        <p class="involvement-desc">四万十・十和を旅するなら、ぜひCUEへ。地元の本が読めて、地元の人と話せる。外国語でのご案内もできます。</p>
+      </div>
+      <div class="involvement-card reveal">
+        <span class="involvement-icon">📣</span>
+        <p class="involvement-title">口コミで広める</p>
+        <p class="involvement-desc">「こんな場所があるよ」と誰かに話してください。CUEを知ってもらうことが、一番の応援になります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. ACCESS -->
+  <section id="access">
     <p class="section-label reveal">Visit Us</p>
     <h2 class="section-title reveal">アクセス・開館情報</h2>
+    <div class="section-divider reveal"></div>
     <div class="access-grid">
       <div class="access-info reveal">
         <div>
@@ -2059,7 +2014,8 @@
           <div class="access-hours">
             <span class="access-hours-time">10:00 – 18:00</span>
           </div>
-          <p class="access-hours-range" style="color:var(--text-mid);font-size:13px;margin-top:4px;">火曜日 〜 土曜日　／　日・月・祝日 休館</p>
+          <p class="access-hours-range" style="color:var(--text-mid);font-size:13px;margin-top:4px;">火曜日 〜 土曜日　／　日・月・祝日
+            休館</p>
         </div>
         <div>
           <div class="access-badges">
@@ -2077,62 +2033,24 @@
     </div>
   </section>
 
-  <!-- 関わり方 -->
-  <section id="join">
-    <p class="section-label reveal">Get Involved</p>
-    <h2 class="section-title reveal">CUEに関わる</h2>
-    <p style="text-align:center;font-size:14px;color:var(--text-mid);margin-bottom:56px;letter-spacing:0.08em;" class="reveal">あなたの関わり方で、十和が変わる。</p>
-
-    <div class="join-grid reveal">
-      <div class="join-card">
-        <span class="join-icon">📚</span>
-        <h3 class="join-title">利用する</h3>
-        <p class="join-desc">本を借りたい、作業したい、ただぼーっとしたい。どんな使い方でも大歓迎。火〜土 10:00〜18:00、入場無料です。</p>
-      </div>
-      <div class="join-card">
-        <span class="join-icon">🤝</span>
-        <h3 class="join-title">ボランティアする</h3>
-        <p class="join-desc">本の整理、イベントのお手伝い、得意なことを活かしてCUEを一緒に育ててみませんか。経験不問、気軽にご連絡を。</p>
-      </div>
-      <div class="join-card">
-        <span class="join-icon">💛</span>
-        <h3 class="join-title">寄付で応援する</h3>
-        <p class="join-desc">本の寄付、資金での応援、どちらも大切な力になります。CUEの運営はみなさんの支えで続いています。</p>
-      </div>
-      <div class="join-card">
-        <span class="join-icon">🌏</span>
-        <h3 class="join-title">関係人口になる</h3>
-        <p class="join-desc">十和に住んでいなくてもOK。SNSでシェアする、友人に話す、遠くから応援する——それだけで十分つながりになります。</p>
-      </div>
-      <div class="join-card">
-        <span class="join-icon">🗺️</span>
-        <h3 class="join-title">旅・観光で訪れる</h3>
-        <p class="join-desc">四万十・十和を旅するなら、ぜひCUEへ。地元の本が読めて、地元の人と話せる。外国語でのご案内もできます。</p>
-      </div>
-      <div class="join-card">
-        <span class="join-icon">📣</span>
-        <h3 class="join-title">口コミで広める</h3>
-        <p class="join-desc">「こんな場所があるよ」と誰かに話してください。CUEを知ってもらうことが、一番の応援になります。</p>
-      </div>
-      <div class="join-card-wide reveal">
-        <div class="join-wide-text">
-          <h3>まずは、お気軽にご連絡ください。</h3>
-          <p>ボランティア・寄付・取材・コラボ、どんなことでもお問い合わせお待ちしています。</p>
-        </div>
-        <a href="mailto:sodatsukaitowa@gmail.com" class="join-btn">お問い合わせ →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SNS -->
+  <!-- 10. SNS -->
   <section id="sns">
     <p class="section-label reveal">Follow Us</p>
     <h2 class="section-title reveal">SNS・公式リンク</h2>
+    <div class="section-divider reveal" style="background:var(--light-moss);"></div>
     <div class="sns-links reveal">
-      <a href="#" class="sns-btn"><span class="sns-icon">📘</span> Facebook</a>
-      <a href="#" class="sns-btn"><span class="sns-icon">📷</span> Instagram</a>
-      <a href="#" class="sns-btn"><span class="sns-icon">📝</span> note</a>
-      <a href="#" class="sns-btn"><span class="sns-icon">💬</span> 公式LINE</a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">📘</span> Facebook
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">📷</span> Instagram
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">📝</span> note
+      </a>
+      <a href="#" class="sns-btn">
+        <span class="sns-icon">💬</span> 公式LINE
+      </a>
     </div>
   </section>
 
@@ -2143,24 +2061,6 @@
   </footer>
 
   <script>
-    // Accordion
-    function toggleAccordion(id) {
-      const card = document.getElementById(id);
-      const body = card.querySelector('.accordion-body');
-      const btn  = card.querySelector('.accordion-trigger');
-      const isOpen = card.classList.contains('open');
-
-      if (isOpen) {
-        card.classList.remove('open');
-        body.style.maxHeight = '0';
-        btn.setAttribute('aria-expanded', 'false');
-      } else {
-        card.classList.add('open');
-        body.style.maxHeight = body.scrollHeight + 'px';
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    }
-
     // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
